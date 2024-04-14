@@ -1,10 +1,8 @@
 package com.manjari.productservicesst.coltroller;
 import com.manjari.productservicesst.models.Product;
 import com.manjari.productservicesst.services.ProductService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 // localhost:8080/products -> Product Controller
@@ -12,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
     private final ProductService productService;
 
-    ProductController( ProductService productService){
+    ProductController(@Qualifier("selfProductService") ProductService productService){
         this.productService = productService;
     }
     //localhost:8080/products/id
@@ -23,5 +21,10 @@ public class ProductController {
     @GetMapping
     public Product[] getAllProducts(){
         return productService.getAllProducts();
+    }
+    @PostMapping
+    public  Product createProduct(@RequestBody Product product){
+        productService.createProduct(product) ;
+        return null;
     }
 }

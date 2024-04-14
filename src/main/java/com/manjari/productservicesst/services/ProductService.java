@@ -6,5 +6,6 @@ import org.springframework.stereotype.Service;
 public interface ProductService {
     Product getProductById(Long id);
     Product[] getAllProducts();
+    Product createProduct(Product product);
 
 }

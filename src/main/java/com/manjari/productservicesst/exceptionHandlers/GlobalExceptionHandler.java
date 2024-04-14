@@ -1,5 +1,5 @@
-package com.manjari.productservicesst.ExceptionHandlers;
-import com.manjari.productservicesst.DTOs.ExceptionDto;
+package com.manjari.productservicesst.exceptionHandlers;
+import com.manjari.productservicesst.dtos.ExceptionDto;
 import com.manjari.productservicesst.exception.ProductNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

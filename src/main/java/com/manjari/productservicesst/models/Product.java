@@ -1,6 +1,6 @@
 package com.manjari.productservicesst.models;
 
-import com.fasterxml.jackson.annotation.JsonTypeId;
+import jakarta.persistence.*;
 import lombok.Setter;
 import lombok.Getter;
 import lombok.AllArgsConstructor;
@@ -10,15 +10,15 @@ import lombok.NoArgsConstructor;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-//@Entity
+@Entity
 public class Product {
-//    @Id
+    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
     private Double price;
-//    @ManyToOne
-//    private Category Cat;
-    private String Category;
+    @ManyToOne
+    private Category Category;
     private String img;
 }

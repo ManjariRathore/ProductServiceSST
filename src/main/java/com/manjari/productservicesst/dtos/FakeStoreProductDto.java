@@ -1,4 +1,4 @@
-package com.manjari.productservicesst.DTOs;
+package com.manjari.productservicesst.dtos;
 
 import lombok.Getter;
 import lombok.Setter;

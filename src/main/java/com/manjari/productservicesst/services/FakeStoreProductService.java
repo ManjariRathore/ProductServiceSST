@@ -1,12 +1,13 @@
 package com.manjari.productservicesst.services;
 
-import com.manjari.productservicesst.DTOs.FakeStoreProductDto;
+import com.manjari.productservicesst.dtos.FakeStoreProductDto;
 import com.manjari.productservicesst.exception.ProductNotFoundException;
 import com.manjari.productservicesst.models.Product;
+import com.manjari.productservicesst.models.Category;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-@Service
+@Service("fakeStoreProductService")
 public class FakeStoreProductService implements ProductService{
     @Override
     public Product getProductById(Long id) {
@@ -29,14 +30,25 @@ public class FakeStoreProductService implements ProductService{
         }
         return ret;
     }
+
+    @Override
+    public Product createProduct(Product product) {
+        return null;
+    }
+
     public Product convertFakeStoreDto(FakeStoreProductDto fakeStoreProductDto){
         Product product = new Product();
+
         product.setId(fakeStoreProductDto.getId());
         product.setImg(fakeStoreProductDto.getImg());
         product.setDescription(fakeStoreProductDto.getDescription());
-        product.setCategory(fakeStoreProductDto.getCategory());
         product.setTitle(fakeStoreProductDto.getTitle());
         product.setPrice(fakeStoreProductDto.getPrice());
+
+        Category category = new Category();
+        product.setCategory(category);
+
         return product;
     }
+
 }
